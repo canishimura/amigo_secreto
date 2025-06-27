@@ -33,16 +33,18 @@ function sortear () {
     }
 
     embaralha(sorteados);
-    let sorteio = document.getElementById('lista-sorteio')
-    for (let i = 0; i < sorteados.length - 1; i++) {
-        if ( i == sorteados.length) {
-            sorteio.innerHTML = sorteio.innerHTML + sorteados [i] + ' --> ' + sorteados[0] + '<br>';
+    let sorteio = document.getElementById('lista-sorteio');
+    sorteio.innerHTML = ''; // Limpa o sorteio anterior antes de mostrar o novo
+
+    for (let i = 0; i < sorteados.length; i++) {
+        // Se for o último da lista, ele tira o primeiro
+        if (i == sorteados.length - 1) {
+            sorteio.innerHTML += sorteados[i] + ' --> ' + sorteados[0] + '<br>';
         } else {
-            sorteio.innerHTML = sorteio.innerHTML + sorteados [i] + ' --> ' + sorteados[i+1] + '<br>';
+            // Caso contrário, ele tira o próximo da lista
+            sorteio.innerHTML += sorteados[i] + ' --> ' + sorteados[i + 1] + '<br>';
         }
     }
-
-
 }
 
 
